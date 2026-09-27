@@ -1,0 +1,2 @@
+# Prazno namjerno — admin login se štiti PHP sesijom (auth.php), ne HTTP
+# basic auth-om, da se ne miješa sa Cloudways SSL/proxy podešavanjima.

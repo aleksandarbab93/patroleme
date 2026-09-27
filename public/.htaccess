@@ -1,0 +1,17 @@
+# Ljepše URL-ove (bez .php ekstenzije) i zabrana pristupa src/ i data/ folderima
+# iznad public/ — Cloudways ionako servira samo public/ kao document root,
+# ali ovo je zaštita u slučaju drugačije konfiguracije.
+
+RewriteEngine On
+
+# /privatnost -> privatnost.php (samo ako .php fajl postoji)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)$ $1.php [L]
+
+# ne dozvoli direktan pristup .sqlite ili .php fajlovima iz src/ ako bi
+# neko pogodio putanju (dodatna zaštita, iako su van document root-a)
+<FilesMatch "\.(sqlite|db)$">
+    Require all denied
+</FilesMatch>
