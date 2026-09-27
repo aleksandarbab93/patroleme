@@ -22,6 +22,15 @@ function renderHeader(string $title, string $description, string $activeNav = ''
 <title><?= e($title) ?></title>
 <meta name="description" content="<?= e($description) ?>">
 <link rel="icon" href="/mark-blue.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-509Y7QJ57F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-509Y7QJ57F');
+</script>
 </head>
 <body>
 <div class="wrap">
